@@ -12,6 +12,9 @@
 .container {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    padding: 0;
+    position: relative;
 }
 
 .scrollHeader {
@@ -80,7 +83,7 @@ ImageTwoDiv{
 
 /* 1. HIDE THE LINKS BY DEFAULT */
 .nav-links {
-    display: none; /* Changed from flex to none so it starts closed */
+    display: none; /* none so it starts closed */
     list-style: none;
     flex-direction: column;
     gap: 0.5rem;
@@ -88,9 +91,9 @@ ImageTwoDiv{
     margin: 10px 0 0 0;
 }
 
-/* 2. STYLE THE ANCHOR LINKS */
+
 .nav-links a {
-    color: black; /* Changed to black so you can read it against your white layout background */
+    color: black; 
     text-decoration: none;
     padding: 5px 15px;
 }
@@ -108,12 +111,11 @@ ImageTwoDiv{
     cursor: pointer;
 }
 
-/* 3. FIX THE HAMBURGER LINES (Moved color and fixed transition typo here) */
 .menu-btn span {
     width: 100%;
     height: 3px;
-    background-color: black; /* Gives the hamburger lines visibility */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Fixed spelling from 'transfom' */
+    background-color: black; 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
     transform-origin: left center;
 }
 
@@ -139,4 +141,38 @@ ImageTwoDiv{
 #menu-toggle-2:checked ~ .menu-btn span:nth-child(3),
 #menu-toggle-3:checked ~ .menu-btn span:nth-child(3) {
     transform: rotate(-45deg) translate(2px, 1px);
+}
+
+.bottom-nav-item{
+    display: flex;
+    flex-direction: column;  
+    align-items: center;     
+    justify-content: center; 
+    gap: 4px; 
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.bottomNav{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /*Locked to screen doesnt move*/
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+      /* re-establish visibilty */
+
+      width: 100%;
+      background-color: white;
+      padding: 12px,20px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0,1);
+      z-index:999;
+}
+
+.bottomNavImage{
+    width: 25px;
+    height: 25px;
 }
