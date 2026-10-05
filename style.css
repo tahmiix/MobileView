@@ -1,16 +1,142 @@
-*{
+* {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.scrollHeader{
-    display:flex;
+.header {
+    position: relative;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.scrollHeader {
+    display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 0%;
+    gap: 20px;
+    position: sticky;
+    overflow: scroll;
 }
 
-.hamburgerDiv{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.status-img {
+    height: 100px;
+    width: 100px;
+}
 
+.articleImage {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.newsProfile {
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    border: 5px solid aquamarine;
+}
+
+.ImageOneDiv {
+    display: flex;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 5px solid black;
+    border-style: ridge;
+    border-top: none;
+    margin: 0;
+}
+
+ImageTwoDiv{
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 5px solid black;
+    border-style: ridge;
+    border-top: none;
+    margin: 0;
+}
+
+.hamburgerDiv {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    min-width: 35px;
+    border-radius: 8px;
+}
+
+/* 1. HIDE THE LINKS BY DEFAULT */
+.nav-links {
+    display: none; /* Changed from flex to none so it starts closed */
+    list-style: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+/* 2. STYLE THE ANCHOR LINKS */
+.nav-links a {
+    color: black; /* Changed to black so you can read it against your white layout background */
+    text-decoration: none;
+    padding: 5px 15px;
+}
+
+#menu-toggle-1, #menu-toggle-2, #menu-toggle-3 {
+   display: none;
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* 3. FIX THE HAMBURGER LINES (Moved color and fixed transition typo here) */
+.menu-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: black; /* Gives the hamburger lines visibility */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Fixed spelling from 'transfom' */
+    transform-origin: left center;
+}
+
+/* 4. TOGGLE MENU OPEN WHEN CHECKED */
+#menu-toggle-1:checked ~ .nav-links, #menu-toggle-2:checked ~ .nav-links,#menu-toggle-3:checked ~ .nav-links {
+    display: flex;
+}
+
+/* 5. ANIMATE HAMBURGER INTO AN 'X' WHEN CHECKED */
+#menu-toggle-1:checked ~ .menu-btn span:nth-child(1),
+#menu-toggle-2:checked ~ .menu-btn span:nth-child(1),
+#menu-toggle-3:checked ~ .menu-btn span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, -1px);
+}
+
+#menu-toggle-1:checked ~ .menu-btn span:nth-child(2),
+#menu-toggle-2:checked ~ .menu-btn span:nth-child(2),
+#menu-toggle-3:checked ~ .menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle-1:checked ~ .menu-btn span:nth-child(3),
+#menu-toggle-2:checked ~ .menu-btn span:nth-child(3),
+#menu-toggle-3:checked ~ .menu-btn span:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, 1px);
 }
